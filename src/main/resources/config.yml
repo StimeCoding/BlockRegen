@@ -1,0 +1,25 @@
+diamond_ore:
+  time: 200
+  drops:
+    diamond:
+      amount: 1
+      fortune:
+        max: 1
+dirt:
+  time: 0
+  drops:
+    dirt:
+      min: 1
+      max: 4
+      fortune:
+        amount: 1
+emerald_ore:
+  time: 1000
+  drops:
+    emerald:
+      chance: 0.25
+      overwrite: true
+      fortune:
+        chance: 0.15
+    cobblestone:
+      amount: 1

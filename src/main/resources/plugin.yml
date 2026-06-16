@@ -1,0 +1,6 @@
+name: BlockRegen
+version: '1.0'
+main: stime.blockRegen.BlockRegen
+api-version: '1.21'
+authors: [ Stime_ ]
+description: for Smirn0ffQ
