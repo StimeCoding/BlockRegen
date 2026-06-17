@@ -93,7 +93,10 @@ class Read implements Listener {
                 boolean overwrite = itemSection.getBoolean("overwrite", false);
 
                 ConfigurationSection fortuneSection = itemSection.getConfigurationSection("fortune");
-                if (fortuneSection != null && player.getInventory().getItemInMainHand().getItemMeta().hasEnchant(Enchantment.FORTUNE)) {
+                if (fortuneSection != null &&
+                        player.getInventory().getItemInMainHand().hasItemMeta() &&
+                        player.getInventory().getItemInMainHand().getItemMeta().hasEnchant(Enchantment.FORTUNE)) {
+
                     int fortune = player.getInventory().getItemInMainHand().getItemMeta().getEnchants().get(Enchantment.FORTUNE);
 
                     chance += fortuneSection.getInt("chance", 0) * fortune;
@@ -101,7 +104,7 @@ class Read implements Listener {
                     max += fortuneSection.getInt("amount", fortuneSection.getInt("max", 0));
                 }
 
-                if (random.nextDouble() > Math.min(chance, 1)) return;
+                if (random.nextDouble() > Math.min(chance, 1)) continue;
                 int amount = random.nextInt(min, max + 1);
 
                 if (overwrite) drops.clear();
